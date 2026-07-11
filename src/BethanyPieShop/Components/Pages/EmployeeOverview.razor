@@ -1,0 +1,42 @@
+@page "/employeeoverview"
+@attribute [StreamRendering]
+
+<h1>Employee Overview</h1>
+
+@if (Employees == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-light">
+        <thead class="table-primary">
+            <tr>
+                <th></th>
+                <th>Employee ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+  
+            @foreach (var employee in Employees)
+            {
+                <tr>
+                    <td>
+                        <img src="@employee.ImageUrl" alt="Foto de @employee.FirstName @employee.LastName" width="75"
+                             height="75" />
+                    </td>
+                    <td>@employee.Id</td>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.LastName</td>
+                    <td></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+
